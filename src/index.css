@@ -37,6 +37,11 @@ body {
   overflow: hidden;
 }
 
+#smooth-wrapper,
+#smooth-content {
+  will-change: transform;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
