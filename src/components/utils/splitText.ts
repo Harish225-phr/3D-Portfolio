@@ -20,12 +20,10 @@ export default function setSplitText() {
   const ToggleAction = "play pause resume reverse";
 
   paras.forEach((para: ParaElement) => {
+    // Skip if already animated
+    if (para.classList.contains("visible")) return;
+    
     para.classList.add("visible");
-    if (para.anim) {
-      para.anim.progress(1).kill();
-      para.split?.revert();
-    }
-
     para.split = new SplitText(para, {
       type: "lines,words",
       linesClass: "split-line",
@@ -49,10 +47,10 @@ export default function setSplitText() {
     );
   });
   titles.forEach((title: ParaElement) => {
-    if (title.anim) {
-      title.anim.progress(1).kill();
-      title.split?.revert();
-    }
+    // Skip if already animated
+    if (title.classList.contains("visible")) return;
+    
+    title.classList.add("visible");
     title.split = new SplitText(title, {
       type: "chars,lines",
       linesClass: "split-line",
@@ -75,6 +73,4 @@ export default function setSplitText() {
       }
     );
   });
-
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
 }

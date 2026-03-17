@@ -6,7 +6,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.5;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   color-scheme: light dark;
   color: #eae5ec;
   background-color: var(--backgroundColor);
@@ -35,11 +35,22 @@ h6 {
 
 body {
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 #smooth-wrapper,
 #smooth-content {
   will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.para,
+.title,
+.split-line {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 a {
